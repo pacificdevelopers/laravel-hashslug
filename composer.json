@@ -1,16 +1,16 @@
 {
-    "name": "balping/laravel-hashslug",
+    "name": "pacificinternet/laravel-hashslug",
     "description": "Package providing a trait to use Hashids on a model",
     "keywords": ["laravel", "hashids", "hashid", "slug", "hashslug"],
     "type": "library",
     "require": {
-        "hashids/hashids": "^3.0",
-        "illuminate/database": "5.5.*|5.6.*",
-        "illuminate/routing": "5.5.*|5.6.*"
+        "hashids/hashids": "^3.0|^4.0|^5.0",
+        "illuminate/database": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0|^9.0|^10.0",
+        "illuminate/routing": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0|^9.0|^10.0"
     },
     "require-dev": {
-        "orchestra/testbench": "3.5.*|3.6.*",
-        "phpunit/phpunit": "^6.3|^7.0"
+        "orchestra/testbench": "3.5.*|3.6.*|3.7.*|3.8.*|^4.0|^5.0|^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^6.3|^7.0|^8.0|^9.0|^10.0"
     },
     "license": "GPL-3.0-only",
     "authors": [
@@ -20,12 +20,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Balping\\HashSlug\\": "src/"
+            "Pacificinternet\\HashSlug\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Balping\\HashSlug\\Tests\\": "tests/"
+            "Pacificinternet\\HashSlug\\Tests\\": "tests/"
         }
 	},
 	"minimum-stability": "dev",

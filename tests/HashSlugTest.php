@@ -20,11 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-namespace Balping\HashSlug\Tests;
+namespace Pacificinternet\HashSlug\Tests;
 
 
 use Illuminate\Database\Eloquent\Model;
-use Balping\HashSlug\HasHashSlug;
+use Pacificinternet\HashSlug\HasHashSlug;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Controller;
 use Illuminate\Database\Capsule\Manager as DB;
@@ -135,7 +135,7 @@ class HashSlugTest extends \Orchestra\Testbench\TestCase
 
 	/** @test */
 	public function urls_are_generated_using_slug(){
-		Route::resource('/posts-nobind', '\Balping\HashSlug\Tests\PostControllerNoBind', [
+		Route::resource('/posts-nobind', '\Pacificinternet\HashSlug\Tests\PostControllerNoBind', [
 			"middleware"	=> \Illuminate\Routing\Middleware\SubstituteBindings::class
 		]);
 
@@ -143,7 +143,7 @@ class HashSlugTest extends \Orchestra\Testbench\TestCase
 
 		$this->assertEquals(
 			'http://localhost/posts-nobind/' . $post->slug(),
-			action('\Balping\HashSlug\Tests\PostControllerNoBind@show', $post)
+			action('\Pacificinternet\HashSlug\Tests\PostControllerNoBind@show', $post)
 		);
 
 		$response = $this->get('/posts-nobind/' . $post->slug());
@@ -153,7 +153,7 @@ class HashSlugTest extends \Orchestra\Testbench\TestCase
 
 	/** @test */
 	public function implicit_route_model_binging(){
-		Route::resource('/posts', '\Balping\HashSlug\Tests\PostController', [
+		Route::resource('/posts', '\Pacificinternet\HashSlug\Tests\PostController', [
 			"middleware"	=> \Illuminate\Routing\Middleware\SubstituteBindings::class
 		]);
 
@@ -170,7 +170,7 @@ class HashSlugTest extends \Orchestra\Testbench\TestCase
 	public function explicit_route_model_binging(){
 		Route::model('post', Post::class);
 
-		Route::resource('/posts', '\Balping\HashSlug\Tests\PostController', [
+		Route::resource('/posts', '\Pacificinternet\HashSlug\Tests\PostController', [
 			"middleware"	=> \Illuminate\Routing\Middleware\SubstituteBindings::class
 		]);
 
