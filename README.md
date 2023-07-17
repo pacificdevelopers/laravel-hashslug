@@ -1,10 +1,6 @@
-## Moved to GitLab
-
-**Warning**: This project has been moved to GitLab: https://gitlab.com/balping/laravel-hashslug
-
-----
-
 # Laravel HashSlug (Hashids)
+
+Forked from https://gitlab.com/balping/laravel-hashslug v2.2.4
 
 This package is useful to hide real model ids in urls using [Hashids](https://github.com/ivanakimov/hashids.php). A hashid (slug) is deterministically generated given an application, a model class and an id. Also, given a hashid (slug), the real id can be decoded. Thus no extra field needs to be stored in the database, ids are decoded on each request.
 
@@ -38,11 +34,15 @@ composer require balping/laravel-hashslug
 
 ### Versions
 
-| Laravel | Hashslug |
-|---------|----------|
-| 5.4.\*  | 2.0.\*   |
-| 5.5.\*  | 2.1.\*   |
-| 5.6.\*  | 2.1.\*   |
+| Laravel   | Hashslug |
+|-----------|----------|
+| 5.4.\*    | 2.0.\*   |
+| 5.5 - 5.8 | 2.1.\*   |
+| 6.\*      | 2.1.\*   |
+| 7.\*      | 2.2.\*   |
+| 8.\*      | 2.2.\*   |
+| 9.\*      | 2.2.\*   |
+| 10.\*     | 2.2.\*   |
 
 
 > **Note:** This package requires either the [BC Math](https://secure.php.net/manual/en/book.bc.php) or [GMP](https://secure.php.net/manual/en/book.gmp.php) extension in order to work.
@@ -197,11 +197,29 @@ You can set the alphabet globally too, by adding the following line to `config/h
     'alphabet' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ```
 
+### Prefix
+
+You can set a custom prefix to hashslug:
+
+```php
+class Post extends Model {
+    use HasHashSlug;
+
+    protected static $hashSlugPrefix = 'post-';
+}
+```
+
+This would return slugs in the form of `post-K4Nkd`.
+
 ## Similar packages and how is this one different
 
 #### [Laravel Hashids](https://github.com/vinkla/laravel-hashids)
 
 Provides a facade, but no built-in routing. Allows multiple salts through "connections". Unnecessary overhead if you need hashids only for slugging models.
+
+#### [Eloquent-Hashids](https://github.com/mtvs/eloquent-hashids)
+
+Mostly identical to this package in functionality, however by using the above package, it adds an unnecessary layer of complexity. Makes it optional to use route bindings.
 
 #### [Laravel-Hashid](https://github.com/KissParadigm/Laravel-Hashid)
 
